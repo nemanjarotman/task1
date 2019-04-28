@@ -2,7 +2,9 @@
     <div id="animal-list">
         <h1>All Animals</h1>
             <div v-for="animal in animals"
-            :key="animal.id" class="animals"><p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum }}</p></div>
+                :key="animal.id" class="animals">
+                <p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum | nepoznat}}</p>
+            </div>
     </div>
 </template>
 
@@ -19,6 +21,7 @@ export default{
     },
     methods: {
 
+    
     },
     
 }
