@@ -1,5 +1,11 @@
 <template>
     <div id="animal-list">
+        <form v-on:submit.prevent="addAnimal">
+            <p>Ime: <input v-model="animal.ime" placeholder="Ime"></p>
+            <p>Vrsta: <input v-model="animal.vrsta" placeholder="Vrsta"></p>
+            <p>Datum: <input v-model="animal.datum" placeholder="Datum"></p>
+            <button class="addanimal" type="submit">Add Animal</button>
+        </form>
         <h1>All Animals</h1>
             <div v-for="(animal, index) in animals"
                 :key="animal.id" class="animals">
@@ -19,7 +25,8 @@ import json from '../data.json'
 export default{
     data(){
         return{
-            animals: json
+            animals: json,
+            animal: {ime:"", vrsta:"",datum:""}
         }
     },
     methods: {
@@ -30,6 +37,14 @@ export default{
         moveToTop(value,index){
             this.animals.unshift(value);
             this.removeElement(index+1);
+        },
+        addAnimal(){
+            let newAnimal = { 
+                ime: this.animal.ime,
+                vrsta: this.animal.vrsta,
+                datum: this.animal.datum
+            };
+            this.animals.push(newAnimal);
         }
     },
     
@@ -46,6 +61,10 @@ export default{
     background: rgb(144, 241, 144);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: blue;
+}
+
+.addanimal{
+    width:150px;
 }
 
 button{
