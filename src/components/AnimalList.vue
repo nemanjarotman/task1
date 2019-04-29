@@ -5,6 +5,7 @@
                 :key="animal.id" class="animals">
                 <p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum | nepoznat}}
                     <button v-on:click = "removeElement(index)">Remove</button>
+                    <button v-on:click = "moveToTop(animal,index)">Move To Top</button>
                 </p>
             </div>
     </div>
@@ -24,7 +25,12 @@ export default{
     methods: {
         removeElement(index){
             this.animals.splice(index,1);
-        }    
+        },
+        
+        moveToTop(value,index){
+            this.animals.unshift(value);
+            this.removeElement(index+1);
+        }
     },
     
 }
