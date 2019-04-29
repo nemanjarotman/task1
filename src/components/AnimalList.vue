@@ -1,9 +1,11 @@
 <template>
     <div id="animal-list">
         <h1>All Animals</h1>
-            <div v-for="animal in animals"
+            <div v-for="(animal, index) in animals"
                 :key="animal.id" class="animals">
-                <p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum | nepoznat}}</p>
+                <p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum | nepoznat}}
+                    <button v-on:click = "removeElement(index)">Remove</button>
+                </p>
             </div>
     </div>
 </template>
@@ -20,8 +22,9 @@ export default{
         }
     },
     methods: {
-
-    
+        removeElement(index){
+            this.animals.splice(index,1);
+        }    
     },
     
 }
@@ -37,5 +40,15 @@ export default{
     background: rgb(144, 241, 144);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: blue;
+}
+
+button{
+    vertical-align: middle;
+    left: 30%;
+    border-radius: 25px;
+    height: 40px;
+    text-align: center;
+    background-color: #333;
+    color: #ff0000;
 }
 </style>
