@@ -1,19 +1,25 @@
 <template>
     <div id="animal-list">
-        <form v-on:submit.prevent="addAnimal">
+        <form v-if="!submitted">
             <p>Ime: <input v-model="animal.ime" placeholder="Ime"></p>
             <p>Vrsta: <input v-model="animal.vrsta" placeholder="Vrsta"></p>
             <p>Datum: <input v-model="animal.datum" placeholder="Datum"></p>
-            <button class="addanimal" type="submit">Add Animal</button>
+            <label>Sektori</label>
+            <select v-model="sector">
+                <option v-for="sector in sectors" :key="sector.id">{{ sector }}</option>    
+            </select> 
+                <button class="addanimal" v-on:click.prevent="addAnimal">Add Animal</button>
         </form>
+        
         <h1>All Animals</h1>
             <div v-for="(animal, index) in animals"
                 :key="animal.id" class="animals">
-                <p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum | nepoznat}}
+                <p class="zivotinje">{{ animal.ime }} | {{ animal.vrsta }} | {{ animal.datum | nepoznat }} | {{sector}}
                     <button v-on:click = "removeElement(index)">Remove</button>
                     <button v-on:click = "moveToTop(animal,index)">Move To Top</button>
                 </p>
             </div>
+
     </div>
 </template>
 
@@ -26,7 +32,9 @@ export default{
     data(){
         return{
             animals: json,
-            animal: {ime:"", vrsta:"",datum:""}
+            animal: {ime:'', vrsta:'',datum:'',sector:''},
+            sectors: ['Ptice', 'Polarne', 'Gmizavci', 'Sisari'],
+            submitted: false
         }
     },
     methods: {
@@ -42,10 +50,12 @@ export default{
             let newAnimal = { 
                 ime: this.animal.ime,
                 vrsta: this.animal.vrsta,
-                datum: this.animal.datum
+                datum: this.animal.datum,
             };
-            this.animals.push(newAnimal);
-        }
+            this.animals.push(newAnimal).then(function(data){
+                this.submitted =true;
+            });
+        },
     },
     
 }

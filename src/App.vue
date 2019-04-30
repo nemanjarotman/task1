@@ -4,16 +4,14 @@
   </div>
 </template>
 
-
-
-
 <script>
 
 import AnimalList from './components/AnimalList.vue'
 
 export default {
   components: {
-    'animal-list': AnimalList  
+    'animal-list': AnimalList,
+      
   },
   data () {
     return {
