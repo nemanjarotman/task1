@@ -1,8 +1,14 @@
 {
   "name": "zoo",
+<<<<<<< HEAD
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "nemanjarotman <roki94ftn@gmail.com>",
+=======
+  "description": "Aplication for track animals in zoo",
+  "version": "1.0.0",
+  "author": "nemanjarotman <34609928+nemanjarotman@users.noreply.github.com>",
+>>>>>>> 62bcd76284e798db16138048c9c9807ad0349acf
   "license": "MIT",
   "private": true,
   "scripts": {
