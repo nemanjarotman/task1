@@ -1,0 +1,27 @@
+[
+    {
+        "ime": "Milos",
+        "vrsta": "Lav",
+        "datum": ""
+    },
+    {
+        "ime": "Stanke",
+        "vrsta": "Slon",
+        "datum": "11/4/2004"
+    },
+    {
+        "ime": "Igorica",
+        "vrsta": "Foka",
+        "datum": ""
+    },
+    {
+        "ime": "Dragan",
+        "vrsta": "Jez",
+        "datum": "8/3/2014"
+    },
+    {
+        "ime": "Miksa",
+        "vrsta": "Pas",
+        "datum": "4/12/2000"
+    }
+]
